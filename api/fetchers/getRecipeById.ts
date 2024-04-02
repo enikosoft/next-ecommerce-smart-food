@@ -7,7 +7,7 @@ import {Recipe} from '@/lib/types';
 import {mapResponseRecipe} from '../utils';
 import {imageSelect, shortProductSelect} from './resolvers';
 
-export const getRecipeById = cache(async (id: number): Promise<Recipe> => {
+export const getRecipeById = async (id: number): Promise<Recipe> => {
   try {
     const recipe = await prismadb.recipes.findUnique({
       where: {id},
@@ -36,4 +36,4 @@ export const getRecipeById = cache(async (id: number): Promise<Recipe> => {
     console.error('[RECIPE_BY_ID]', error);
     return notFound();
   }
-});
+};

@@ -9,7 +9,7 @@ import {Order} from '@/lib/types';
 import {mapResponseOrder} from '../utils';
 import {orderSelect} from './resolvers';
 
-export const getOrder = cache(async (orderId: number): Promise<Order | null> => {
+export const getOrder = async (orderId: number): Promise<Order | null> => {
   try {
     const {getToken} = auth();
     const token = await getToken();
@@ -42,4 +42,4 @@ export const getOrder = cache(async (orderId: number): Promise<Order | null> => 
     console.error('[GET_ORDER_BY_ID]', error);
     notFound();
   }
-});
+};

@@ -1,6 +1,5 @@
 import {auth} from '@clerk/nextjs';
 import {OrderStatus} from '@prisma/client';
-import {cache} from 'react';
 
 import prismadb from '@/lib/prismadb';
 import {List, Order, Pagination} from '@/lib/types';
@@ -8,7 +7,7 @@ import {List, Order, Pagination} from '@/lib/types';
 import {mapResponseOrder} from '../utils';
 import {orderSelect} from './resolvers';
 
-export const getOrders = cache(async (page = 1, limit = 10): Promise<List<Order>> => {
+export const getOrders = async (page = 1, limit = 10): Promise<List<Order>> => {
   try {
     const {getToken} = auth();
     const token = await getToken();
@@ -68,4 +67,4 @@ export const getOrders = cache(async (page = 1, limit = 10): Promise<List<Order>
       },
     };
   }
-});
+};

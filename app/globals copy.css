@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #90C12D
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+
+    --color-primary: #90C12D
+  }
+}
+
+body {
+
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

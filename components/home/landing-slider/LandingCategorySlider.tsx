@@ -1,4 +1,4 @@
-import {getCategories} from '@/api/fetchers/getCategories';
+import {getCategories} from '@/data/fetchers/getCategories';
 
 import {CategoriesForMobile} from '@/components/products/CategoriesForMobile';
 import ProductCategoryCard from '@/components/products/CategoryCard';

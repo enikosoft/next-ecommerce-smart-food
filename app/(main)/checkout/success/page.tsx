@@ -1,4 +1,4 @@
-import {getOrder} from '@/api/fetchers/getOrder';
+import {getOrder} from '@/data/fetchers/getOrder';
 import {redirect} from 'next/navigation';
 import Stripe from 'stripe';
 

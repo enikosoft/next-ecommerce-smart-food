@@ -1,4 +1,4 @@
-import {getProductById} from '@/api/fetchers/getProductById';
+import {getProductById} from '@/data/fetchers/getProductById';
 import {NextPage} from 'next';
 import {redirect} from 'next/navigation';
 import {Suspense} from 'react';

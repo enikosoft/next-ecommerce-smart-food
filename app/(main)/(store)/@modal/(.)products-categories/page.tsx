@@ -1,4 +1,4 @@
-import {getCategories} from '@/api/fetchers/getCategories';
+import {getCategories} from '@/data/fetchers/getCategories';
 import {NextPage} from 'next';
 
 import CategoriesDialog from '@/components/products/CategoriesDialog';

@@ -1,4 +1,4 @@
-import {getOrders} from '@/api/fetchers/getOrders';
+import {getOrders} from '@/data/fetchers/getOrders';
 import React from 'react';
 
 import OrdersList from './OrdersList';

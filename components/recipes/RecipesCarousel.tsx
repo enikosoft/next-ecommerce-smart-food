@@ -1,4 +1,4 @@
-import {getRecipes} from '@/api/fetchers/getRecipes';
+import {getRecipes} from '@/data/fetchers/getRecipes';
 import {ReactNode} from 'react';
 
 import {Recipe} from '@/lib/types';

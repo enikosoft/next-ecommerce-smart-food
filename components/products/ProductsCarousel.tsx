@@ -1,4 +1,4 @@
-import {getProductsDataForCarousel} from '@/api/fetchers/productsFetcher';
+import {getProductsDataForCarousel} from '@/data/fetchers/productsFetcher';
 import {ReactNode} from 'react';
 
 import {Product, ProductsCarouselType} from '@/lib/types';

@@ -1,5 +1,5 @@
-import {getRecipeCategories} from '@/api/fetchers/getCategories';
-import {getRecipes} from '@/api/fetchers/getRecipes';
+import {getRecipeCategories} from '@/data/fetchers/getCategories';
+import {getRecipes} from '@/data/fetchers/getRecipes';
 import {Suspense} from 'react';
 
 import {SearchDataQuery} from '@/lib/types';

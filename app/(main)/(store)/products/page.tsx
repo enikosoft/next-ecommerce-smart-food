@@ -1,5 +1,5 @@
-import {getCategories} from '@/api/fetchers/getCategories';
-import {getAllProducts} from '@/api/fetchers/getProducts';
+import {getCategories} from '@/data/fetchers/getCategories';
+import {getAllProducts} from '@/data/fetchers/getProducts';
 import {Suspense} from 'react';
 
 import {SearchDataQuery} from '@/lib/types';

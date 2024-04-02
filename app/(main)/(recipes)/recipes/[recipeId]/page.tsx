@@ -1,5 +1,5 @@
-import {getProductById} from '@/api/fetchers/getProductById';
-import {getRecipeById} from '@/api/fetchers/getRecipeById';
+import {getProductById} from '@/data/fetchers/getProductById';
+import {getRecipeById} from '@/data/fetchers/getRecipeById';
 import {NextPage} from 'next';
 import {redirect} from 'next/navigation';
 import {Suspense} from 'react';

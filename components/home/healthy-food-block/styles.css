@@ -1,0 +1,41 @@
+.healthy-food-block-text p:last-of-type::after {
+  content: '';
+  display: block;
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 1) 60%);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .healthy-food-block-text p:last-of-type::after {
+    height: 25%;
+  }
+}
+
+.more-content.healthy-food-block-text p:last-of-type::after {
+  display: none;
+}
+
+.read-more-btn {
+  padding-left: 32px;
+  padding-right: 56px;
+}
+.read-more-btn::after {
+  right: 15%;
+  top: 45%;
+  position: absolute;
+  content: '';
+  width: 14px;
+  height: 14px;
+  transform: rotate(-90deg);
+  background: var(--primary);
+  clip-path: polygon(100% 0%, 50% 50%, 100% 100%);
+}
+
+.read-more-btn:hover::after {
+  background: #fff;
+}

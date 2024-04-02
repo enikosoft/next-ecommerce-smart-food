@@ -1,0 +1,179 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Categories {
+  id            Int             @id @default(autoincrement())
+  name          String
+  logo          String?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @default(now()) @updatedAt
+  subcategories Subcategories[]
+  products      Products[]
+}
+
+model Subcategories {
+  id         Int        @id @default(autoincrement())
+  category   Categories @relation(fields: [categoryId], references: [id])
+  categoryId Int        @map("category_id")
+  name       String
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @default(now()) @updatedAt
+  Products   Products[]
+
+  @@index([categoryId], type: Hash)
+}
+
+model Products {
+  id               Int           @id @default(autoincrement())
+  categoryId       Int           @map("category_id")
+  categories       Categories    @relation(fields: [categoryId], references: [id])
+  subcategoryId    Int           @map("subcategory_id")
+  subcategories    Subcategories @relation(fields: [subcategoryId], references: [id])
+  name             String
+  description      String
+  price            Float
+  weightPerServing Int           @map("weight_per_serving")
+  measurement      String
+  calories         Float?
+  proteins         Float?
+  fats             Float?
+  carbohydrates    Float?
+  availability     Boolean       @default(true)
+  imageId          Int?          @map("image_id")
+  image            Images?       @relation(name: "ProductImage", fields: [imageId], references: [id])
+
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @default(now()) @updatedAt
+  discount        Discounts?
+  OrderItems      OrderItems[]
+  RecipesProducts RecipesProducts[]
+
+  @@index([categoryId])
+  @@index([subcategoryId])
+}
+
+model Discounts {
+  id                 Int      @id @default(autoincrement())
+  productId          Int      @unique @map("product_id")
+  product            Products @relation(fields: [productId], references: [id])
+  discountPercentage Int      @map("discount_percentage")
+  isActive           Boolean  @default(true) @map("is_active")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @default(now()) @updatedAt
+
+  @@index([productId, isActive])
+}
+
+enum CartStatus {
+  IN_PROGRESS
+  DONE
+  REJECT
+}
+
+enum OrderStatus {
+  IN_PROGRESS
+  SUCCESSED
+  FAILED
+}
+
+model Orders {
+  id         Int          @id @default(autoincrement())
+  userId     String       @map("user_id")
+  userPhone  String?      @map("user_phone")
+  userName   String?      @map("user_name")
+  totalCost  Decimal      @map("total_cost") @db.Money
+  status     OrderStatus  @default(IN_PROGRESS)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @default(now()) @updatedAt
+  orderItems OrderItems[]
+  shipping   Shipping?
+
+  @@index([userId])
+}
+
+model OrderItems {
+  id        Int      @id @default(autoincrement())
+  orderId   Int      @map("order_id")
+  order     Orders   @relation(fields: [orderId], references: [id])
+  productId Int      @map("product_id")
+  product   Products @relation(fields: [productId], references: [id])
+  quantity  Int
+  price     Decimal  @db.Money
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  @@index([orderId, productId])
+}
+
+model Shipping {
+  id       Int    @id @default(autoincrement())
+  county   String
+  city     String
+  postCode String @map("post_code") @db.VarChar(8)
+  address  String
+  orderId  Int    @unique @map("order_id")
+  order    Orders @relation(fields: [orderId], references: [id])
+}
+
+model RecipeCategories {
+  id        Int       @id @default(autoincrement())
+  name      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now()) @updatedAt
+  recipes   Recipes[]
+}
+
+model Recipes {
+  id         Int              @id @default(autoincrement())
+  name       String
+  categoryId Int              @map("category_id")
+  category   RecipeCategories @relation(fields: [categoryId], references: [id])
+
+  plateImgId  Int?    @map("plate_img_id")
+  plateImg    Images? @relation(name: "PlateImage", fields: [plateImgId], references: [id])
+  bannerImgId Int?    @map("banner_img_id")
+  bannerImg   Images? @relation(name: "BannerImage", fields: [bannerImgId], references: [id])
+
+  description      String?
+  instructions     Json?
+  weightPerServing Int               @map("weight_per_serving")
+  measurement      String
+  cookTime         String            @map("cook_time")
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @default(now()) @updatedAt
+  recipesProducts  RecipesProducts[]
+}
+
+model RecipesProducts {
+  id        Int      @id @default(autoincrement())
+  recipeId  Int      @map("recipe_id")
+  recipe    Recipes  @relation(fields: [recipeId], references: [id])
+  productId Int      @map("product_id")
+  product   Products @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  @@index([recipeId, productId])
+}
+
+model Images {
+  id           Int     @id @default(autoincrement())
+  url          String
+  cloudinaryId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  plateImages    Recipes[]  @relation(name: "PlateImage")
+  bannerImages   Recipes[]  @relation(name: "BannerImage")
+  productsImages Products[] @relation(name: "ProductImage")
+}

@@ -1,0 +1,35 @@
+.product-section-card.slider {
+  width: calc(100% - 30px);
+}
+.product-section-card svg path {
+  fill: var(--primary-foreground);
+}
+
+.product-section-card:hover svg path {
+  fill: var(--primary);
+}
+
+.product-section-card:hover p {
+  color: var(--primary);
+}
+
+.product-section-card:hover svg ellipse {
+  fill: var(--primary);
+}
+
+.card-small div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-small div div svg {
+  width: 28px;
+  height: 28px;
+}
+
+.card-small p {
+  font-weight: 600;
+  padding-left: 24px;
+  transform: translate(0, -15%);
+}

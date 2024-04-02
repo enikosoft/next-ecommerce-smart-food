@@ -1,0 +1,4 @@
+.line-1,
+.line-2 {
+  @apply mx-1 my-2 h-0.5 w-6 bg-primary transition-all duration-300;
+}

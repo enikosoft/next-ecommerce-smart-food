@@ -1,5 +1,4 @@
 import {notFound} from 'next/navigation';
-import {cache} from 'react';
 
 import prismadb from '@/lib/prismadb';
 import {Product} from '@/lib/types';
@@ -7,7 +6,7 @@ import {Product} from '@/lib/types';
 import {mapResponseProduct} from '../utils';
 import {imageSelect} from './resolvers';
 
-export const getProductById = cache(async (id: number): Promise<Product> => {
+export const getProductById = async (id: number): Promise<Product> => {
   try {
     const product = await prismadb.products.findUnique({
       where: {id},
@@ -32,4 +31,4 @@ export const getProductById = cache(async (id: number): Promise<Product> => {
     console.error('[PRODUCT_BY_ID]', error);
     return notFound();
   }
-});
+};

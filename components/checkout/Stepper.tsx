@@ -19,7 +19,7 @@ export default function Stepper({currentStep, steps, data}: {currentStep: number
   );
 
   return (
-    <ol className="overflow-hidden">
+    <ol className="mt-10 overflow-hidden md:mt-0">
       {stepsArray.map((step) => (
         <li
           key={step}

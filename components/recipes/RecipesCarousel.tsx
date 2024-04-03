@@ -32,12 +32,12 @@ export default async function RecipesCarousel({title, subtitle, categoryId}: Pro
         <p className="mt-4 text-base text-primary-black">{subtitle}</p>
       </div>
       <Carousel className="mt-24 w-full">
-        <CarouselContent className="w-full">
+        <CarouselContent className="ml-0 w-full">
           {arraysForSlider.map((item, index) => {
             return (
-              <CarouselItem key={index} className={`xl:basis-1/2`}>
+              <CarouselItem key={index} className="first-of-type:pl-0 xl:basis-1/2">
                 {item.map((recipe, index) => (
-                  <div key={index} className="mb-4 h-48">
+                  <div key={index} className="mb-4">
                     <RecipeCard recipe={recipe} />
                   </div>
                 ))}

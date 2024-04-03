@@ -80,7 +80,7 @@ export default function ShippingInfo(props: StepperComponentProps) {
   const renderForm = () => {
     return (
       <FormProvider {...form}>
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 pt-7">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex max-w-64 flex-col gap-4 pt-7">
           <div className="flex w-full flex-col justify-between gap-4">
             {isLoaded ? (
               <AddressComponent />
@@ -157,13 +157,13 @@ export default function ShippingInfo(props: StepperComponentProps) {
   }, [shippingInfo]);
 
   return (
-    <div className="max-w-[405px]">
+    <>
       <div className="flex w-full">
-        <h5 className="font-sans text-lg">{title}</h5>
+        <h5 className="w-56 font-sans text-lg">{title}</h5>
         {currentStep > step && (
           <div
             onClick={handleChangeStep}
-            className="ml-20 flex items-center gap-2 pt-1 text-sm text-primary hover:cursor-pointer hover:text-primary-hover"
+            className="flex items-center gap-2 pt-1 text-sm text-primary hover:cursor-pointer hover:text-primary-hover md:ml-20"
           >
             Edit <FaRegEdit />
           </div>
@@ -171,6 +171,6 @@ export default function ShippingInfo(props: StepperComponentProps) {
       </div>
 
       {currentStep > step ? renderFilledContent() : renderForm()}
-    </div>
+    </>
   );
 }

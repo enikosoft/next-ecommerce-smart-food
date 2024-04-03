@@ -102,7 +102,6 @@ const config = {
       fontFamily: {
         sans: ['var(--font-sans)'],
         roboto: ['var(--font-roboto)'],
-        single: ['var(--font-single)'],
         rubik: ['var(--font-rubik)'],
       },
     },

@@ -17,7 +17,7 @@ const Page: NextPage<Props> = async ({}) => {
       <LandingCategorySlider />
 
       <HomeBetterBlock />
-      <div className="md:mt-40">
+      <div className="-mt-10 md:mt-40">
         <Suspense fallback={<ProductListSceleton />}>
           <ProductsCarousel
             title={
@@ -31,7 +31,7 @@ const Page: NextPage<Props> = async ({}) => {
         </Suspense>
       </div>
 
-      <div className="mt-20 md:mt-40">
+      <div className="mt-10 md:mt-40">
         <Suspense fallback={<ProductListSceleton />}>
           <ProductsCarousel
             title={

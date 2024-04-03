@@ -19,7 +19,7 @@ export default function RecipeDetailsImage({name, recipeImg, products}: Props) {
             <li key={index}>
               <a className={`circle-menu-${index}`} href="#">
                 <CustomImage
-                  className="img rotate-180 transform"
+                  className="circle-menu-img rotate-180 transform"
                   quality={100}
                   width={60}
                   height={60}

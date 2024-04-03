@@ -86,7 +86,7 @@ export default function PersonalInfo({title, currentStep, step, onChangeStep}: S
 
   const renderForm = () => {
     return (
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 pt-7">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex max-w-64 flex-col gap-4 pt-7">
         <Input
           label="First Name"
           isValid={!errors?.firstName}
@@ -140,20 +140,20 @@ export default function PersonalInfo({title, currentStep, step, onChangeStep}: S
   };
 
   return (
-    <div className="w-full max-w-72 md:w-[300px] lg:w-[405px]">
-      <div className="flex">
-        <h5 className="min-w-56 font-sans text-lg">{title}</h5>
+    <>
+      <div className="relative flex w-full">
+        <h5 className="w-56 font-sans text-lg">{title}</h5>
 
         {isLoaded && currentStep > step && (
           <div
             onClick={handleChangeStep}
-            className="ml-20 flex items-center gap-2 pt-1 text-sm text-primary hover:cursor-pointer hover:text-primary-hover"
+            className="flex items-center gap-2 pt-1 text-sm text-primary hover:cursor-pointer hover:text-primary-hover md:ml-20"
           >
             Edit <FaRegEdit />
           </div>
         )}
       </div>
       {!isLoaded ? renderLoading() : renderFilledContent()}
-    </div>
+    </>
   );
 }

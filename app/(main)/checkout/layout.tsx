@@ -21,7 +21,6 @@ export default function Layout({
         <div className="flex-grow items-center justify-center">{children}</div>
         <Footer />
       </div>
-      {/* </div> */}
     </ClerkProvider>
   );
 }

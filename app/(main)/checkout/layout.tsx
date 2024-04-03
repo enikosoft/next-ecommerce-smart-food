@@ -1,7 +1,7 @@
 import {ClerkProvider} from '@clerk/nextjs';
 import type {Metadata} from 'next';
 
-import {Footer} from '@/components/layout/Footer';
+import {SimpleFooter} from '@/components/layout/SimpleFooter';
 import {SimpleNav} from '@/components/layout/nav/simple-nav';
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function Layout({
       <div className="flex min-h-screen flex-col">
         <SimpleNav />
         <div className="flex-grow items-center justify-center">{children}</div>
-        <Footer />
+        <SimpleFooter />
       </div>
     </ClerkProvider>
   );

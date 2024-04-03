@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 
 import {HealthyFoodBlock} from '@/components/home/healthy-food-block/HealthyFoodBlock';
-import {Footer} from '@/components/layout/Footer';
+import {SimpleFooter} from '@/components/layout/SimpleFooter';
 import {Nav} from '@/components/layout/nav/nav';
 import Container from '@/components/ui/container';
 
@@ -36,7 +36,7 @@ export default function Layout({
         <HealthyFoodBlock />
       </div>
 
-      <Footer />
+      <SimpleFooter />
     </>
   );
 }

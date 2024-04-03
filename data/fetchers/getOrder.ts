@@ -1,5 +1,4 @@
 import {auth} from '@clerk/nextjs';
-import {OrderStatus} from '@prisma/client';
 import {notFound} from 'next/navigation';
 
 import prismadb from '@/lib/prismadb';
@@ -19,7 +18,6 @@ export const getOrder = async (orderId: number): Promise<Order | null> => {
       where: {
         id: orderId,
         ...(userId && token ? {userId} : {}),
-        status: OrderStatus.SUCCESSED,
       },
       select: orderSelect,
     });

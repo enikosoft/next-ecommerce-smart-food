@@ -1,5 +1,4 @@
 import {auth} from '@clerk/nextjs';
-import {OrderStatus} from '@prisma/client';
 
 import prismadb from '@/lib/prismadb';
 import {List, Order, Pagination} from '@/lib/types';
@@ -22,7 +21,6 @@ export const getOrders = async (page = 1, limit = 10): Promise<List<Order>> => {
       prismadb.orders.findMany({
         where: {
           userId,
-          status: OrderStatus.SUCCESSED,
         },
         take: Number(limit) * page,
         select: orderSelect,
@@ -31,7 +29,6 @@ export const getOrders = async (page = 1, limit = 10): Promise<List<Order>> => {
       prismadb.orders.count({
         where: {
           userId,
-          status: OrderStatus.SUCCESSED,
         },
       }),
     ]);

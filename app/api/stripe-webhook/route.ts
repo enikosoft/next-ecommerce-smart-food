@@ -42,8 +42,6 @@ export async function POST(req: Request) {
           },
         });
 
-        console.log('======> payment_intent.created', result.id);
-
         await stripe?.paymentIntents.update(paymentIntenCreated.id as string, {
           metadata: {
             orderId: result.id,
@@ -52,7 +50,6 @@ export async function POST(req: Request) {
 
         break;
       case 'payment_intent.succeeded':
-        const paymentIntenSucceeded = event.data.object;
         break;
       case 'charge.succeeded':
         const chargeSucceeded = event.data.object;
@@ -61,8 +58,6 @@ export async function POST(req: Request) {
         const orderId = paymentIntent.metadata?.orderId;
         const formattedOrderId = orderId && Number(orderId);
         const userDetails = chargeSucceeded?.billing_details;
-
-        console.log('======> charge.succeeded', orderId);
 
         if (formattedOrderId) {
           await prismadb.orders.update({

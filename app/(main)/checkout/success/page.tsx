@@ -17,9 +17,6 @@ const Page = async ({searchParams}: {params: {slug: string}; searchParams?: {pay
 
   const orderId = stripeIntent.metadata.orderId;
 
-  console.log('stripeIntent.metadata:::', stripeIntent.metadata);
-
-  console.log('orderId:::', orderId);
   if (!stripeIntent || !orderId) {
     redirect('/checkout');
   }

@@ -1,7 +1,6 @@
 import {auth} from '@clerk/nextjs';
 import {OrderStatus} from '@prisma/client';
 import {notFound} from 'next/navigation';
-import {cache} from 'react';
 
 import prismadb from '@/lib/prismadb';
 import {Order} from '@/lib/types';
@@ -16,18 +15,10 @@ export const getOrder = async (orderId: number): Promise<Order | null> => {
 
     const {userId} = auth();
 
-    if (!userId || !token) {
-      throw new Error('Unauthenticated');
-    }
-
-    if (!orderId) {
-      throw new Error('Order id is required');
-    }
-
     const order = await prismadb.orders.findUnique({
       where: {
         id: orderId,
-        userId,
+        ...(userId && token ? {userId} : {}),
         status: OrderStatus.SUCCESSED,
       },
       select: orderSelect,

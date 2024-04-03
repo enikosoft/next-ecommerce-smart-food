@@ -14,7 +14,9 @@ export default function NavbarCartIcon() {
   const {totalCount} = useCartStore((state) => state);
 
   const handleRedirect = () => {
-    router.push('/checkout', {scroll: false});
+    if (totalCount) {
+      router.push('/checkout', {scroll: false});
+    }
   };
 
   return (

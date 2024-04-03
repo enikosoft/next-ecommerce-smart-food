@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider afterSignUpUrl="/">
       <main className="relative h-screen">
         <Image
           src={bgSrc}

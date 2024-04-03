@@ -61,7 +61,7 @@ export const Nav = () => {
                 <VscSearch className="size-5 sm:size-8" />
               </Button>
 
-              <ClerkProvider>
+              <ClerkProvider afterSignInUrl="/">
                 <LoginIcon />
                 <NavbarCartIcon />
               </ClerkProvider>

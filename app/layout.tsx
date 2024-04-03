@@ -1,4 +1,3 @@
-import {ClerkProvider} from '@clerk/nextjs';
 import type {Metadata} from 'next';
 import {Noto_Sans, Roboto, Rubik, Single_Day} from 'next/font/google';
 
@@ -47,13 +46,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // <ClerkProvider>
     <html lang="en" className={`${roboto.variable} ${notoSans.variable} ${rubik.variable}  ${singleDay.variable}`}>
       <body className="font-roboto">
         <Hydration />
         {children}
       </body>
     </html>
-    // </ClerkProvider>
   );
 }

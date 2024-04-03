@@ -20,7 +20,7 @@ export default function OrdersList({orders}: {orders: OrdersList}) {
   const {replace, push} = useRouter();
 
   const {pagination} = orders.meta;
-  const {currentPage, hasNext, hasPrev} = pagination;
+  const {currentPage, hasNext} = pagination;
 
   const handleLoadMore = () => {
     if (hasNext) {

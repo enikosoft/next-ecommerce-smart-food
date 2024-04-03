@@ -1,4 +1,4 @@
-import {RedirectToSignIn, SignedIn, SignedOut} from '@clerk/nextjs';
+import {SignedIn} from '@clerk/nextjs';
 import {NextPage} from 'next';
 
 import Account from '@/components/account/Account';
@@ -21,9 +21,6 @@ const Page: NextPage<Props> = ({searchParams}) => {
           <Account orderPageId={Number(page)} />
         </Container>
       </SignedIn>
-      <SignedOut>
-        <RedirectToSignIn />
-      </SignedOut>
     </>
   );
 };

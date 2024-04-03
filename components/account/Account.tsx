@@ -13,7 +13,7 @@ export default function Account({orderPageId}: {orderPageId: number}) {
         <div className="flex justify-between border-b border-mediumGrey pb-6 lg:px-24">
           <TabsList className="w-72 justify-between bg-white">
             <TabsTrigger value="account">Settings</TabsTrigger>
-            <TabsTrigger value="password">Orders history</TabsTrigger>
+            <TabsTrigger value="orders">Orders history</TabsTrigger>
           </TabsList>
           <SignOutButton>
             <Button className="rounded-sm border-0 bg-white px-3 py-1.5 font-rubik text-base font-semibold text-black hover:cursor-pointer hover:bg-white hover:underline">

@@ -1,15 +1,11 @@
-import type {Metadata, ResolvingMetadata} from 'next';
+import type {Metadata} from 'next';
 
-export async function generateMetadata(_p: any, parent: ResolvingMetadata): Promise<Metadata> {
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
-
+export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Smart Food',
     description: 'Demo ecommerce project on Next.js',
     openGraph: {
       images: [
-        ...previousImages,
         {
           url: 'https://res.cloudinary.com/dxplqquzf/image/upload/v1712170225/smart-food/openGraphImg_dvystr.png',
           width: 1200,

@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 
 import {HealthyFoodBlock} from '@/components/home/healthy-food-block/HealthyFoodBlock';
-import Footer from '@/components/layout/footer';
+import Footer from '@/components/layout/Footer';
 import {Nav} from '@/components/layout/nav/nav';
 import Container from '@/components/ui/container';
 
@@ -23,7 +23,7 @@ export default function Layout({
       <Nav />
       <Container>{children}</Container>
 
-      <div className="my-40">
+      <div className="my-10 md:my-40">
         <HealthyFoodBlock />
       </div>
 

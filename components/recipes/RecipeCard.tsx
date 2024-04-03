@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import {useRouter} from 'next/navigation';
 import React from 'react';
 
@@ -8,8 +7,6 @@ import {Recipe} from '@/lib/types';
 
 import {Button} from '../ui/button';
 import CustomImage from '../ui/custom-image';
-
-import defaultRecipeImg from '@/public/images/home/landing/defaultRecipe.png';
 
 interface Props {
   recipe: Recipe;
@@ -47,7 +44,7 @@ export default function RecipeCard({recipe, small, large}: Props) {
           <div className="mt-2 items-baseline text-sm text-darkGrey">{recipe.cookTime}</div>
         </>
 
-        <Button className="mt-4">Buy all the ingredients</Button>
+        <Button className="mt-4 max-w-36">See ingredients</Button>
       </div>
 
       <div className={`relative  ${small ? 'md:h-[200px] md:w-full ' : large ? 'md:w-full' : ''} w-1/2`}>

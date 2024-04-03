@@ -1,6 +1,8 @@
+import {ClerkProvider} from '@clerk/nextjs';
 import type {Metadata} from 'next';
 
-import Footer from '@/components/layout/footer';
+import Footer from '@/components/layout/Footer';
+import {SimpleNav} from '@/components/layout/nav/simple-nav';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,9 +15,13 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex h-screen flex-col">
-      <div className="flex-grow items-center justify-center">{children}</div>
-      <Footer />
-    </div>
+    <ClerkProvider afterSignUpUrl="/">
+      <div className="flex min-h-screen flex-col">
+        <SimpleNav />
+        <div className="flex-grow items-center justify-center">{children}</div>
+        <Footer />
+      </div>
+      {/* </div> */}
+    </ClerkProvider>
   );
 }

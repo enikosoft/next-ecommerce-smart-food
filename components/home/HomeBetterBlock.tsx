@@ -36,7 +36,7 @@ const data = [
 export default function HomeBetterBlock() {
   return (
     <>
-      <h2 className="heading-2 m-auto mb-6 mt-20 w-full text-center md:mb-16 md:mt-40 lg:w-2/5">
+      <h2 className="heading-2 m-auto mb-6 mt-10 w-full text-center md:mb-16 md:mt-40 lg:w-2/5">
         Why are we <span className="text-primary">better than the supermarket?</span>
       </h2>
       <div className="flex flex-wrap justify-center gap-2 text-sm text-primary-black">

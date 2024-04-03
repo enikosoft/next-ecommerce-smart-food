@@ -33,7 +33,7 @@ export const HealthyFoodBlock = () => {
 
   return (
     <div className="flex flex-col md:flex-row">
-      <div className={`hidden h-auto w-5 flex-1 md:block`}>{img}</div>
+      <div className="hidden h-auto w-5 flex-1 md:block">{img}</div>
 
       <div
         className={cn(
@@ -60,14 +60,16 @@ export const HealthyFoodBlock = () => {
         </p>
 
         {!seeMore && (
-          <Button
-            onClick={toggleSeeMore}
-            className="read-more-btn w-[calc(100%-56px)] w-full text-sm sm:w-auto "
-            variant={'outline'}
-            size={'lg'}
-          >
-            Read more <div className=""></div>
-          </Button>
+          <div className="flex h-20 items-end bg-white">
+            <Button
+              onClick={toggleSeeMore}
+              className="read-more-btn w-full text-sm sm:w-auto "
+              variant={'outline'}
+              size={'lg'}
+            >
+              Read more <div className=""></div>
+            </Button>
+          </div>
         )}
       </div>
     </div>

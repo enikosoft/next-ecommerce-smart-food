@@ -71,10 +71,8 @@ export default function Payment(props: StepperComponentProps) {
   };
 
   return (
-    <div className="w-[405px]">
-      <div className="flex">
-        <h5 className="font-sans text-lg">{title}</h5>
-      </div>
+    <div className="max-w-64">
+      <h5 className="font-sans text-lg">{title}</h5>
 
       <form id="payment-form" onSubmit={handleSubmit}>
         <PaymentElement />

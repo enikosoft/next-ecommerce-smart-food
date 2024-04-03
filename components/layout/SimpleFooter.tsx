@@ -4,7 +4,7 @@ import {FaSquareFacebook} from 'react-icons/fa6';
 
 import Container from '@/components/ui/container';
 
-const Footer = async () => {
+export const SimpleFooter = async () => {
   return (
     <div className="relative flex h-24 items-center bg-primary-black">
       <Container className="w-full">
@@ -21,5 +21,3 @@ const Footer = async () => {
     </div>
   );
 };
-
-export default Footer;
